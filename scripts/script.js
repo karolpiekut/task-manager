@@ -1,10 +1,10 @@
-/*
+
 const button = document.querySelector('#add-task');
 const tasksDiv = document.querySelector('#tasks');
 let number = 1;
 
 let taskList = [];
-*/
+
 const statusList = {
     not_started: 0,
     in_progress: 1,
@@ -13,14 +13,16 @@ const statusList = {
     expired: 4
 }
 
-function Task(title, text, date, status) {
-    this.title = title;
-    this.text = text;
-    this.date = date;
-    this.status = status;
+class TaskTemplate {
+    constructor(title, text, date, status) {
+        this.title = title;
+        this.text = text;
+        this.date = date;
+        this.status = status;
+    }
 }
 
-const completeTutorial = new Task("complete tutorial", "work on the tutorial", "2024-30-01", "not-started");
+const completeTutorial = new TaskTemplate("complete tutorial", "work on the tutorial", "2024-30-01", "not-started");
 
 console.log(completeTutorial);
 
@@ -32,7 +34,6 @@ console.log(statusList.in_progress);
 
 
 
-/*
 function addTask() {
     const para = document.createElement('p');
     const node = document.createTextNode(`This is number ${number}`);
@@ -44,4 +45,3 @@ function addTask() {
 }
 
 button.addEventListener('click', addTask);
-*/
