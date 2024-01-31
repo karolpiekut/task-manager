@@ -1,5 +1,5 @@
 const button = document.querySelector("#add-task");
-const tasksDiv = document.querySelector("#tasks");
+const projects = document.querySelector("#projects");
 
 let taskList = [];
 
