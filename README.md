@@ -10,8 +10,8 @@ investigate:
 - app design
 
 app sections:
----------------------------------
-- PLAN
+--------------------------------- 
+- PLAN 125px wide
 - TODAY
 - FUTURE
 - OVERDUE
