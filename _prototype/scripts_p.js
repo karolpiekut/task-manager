@@ -3,15 +3,15 @@ const projects = document.querySelector("#projects");
 
 let taskList = [];
 
-/*
+
 const statusList = {
   not_started: 0,
   in_progress: 1,
   complete: 2,
   cancelled: 3,
-  expired: 4,
+  expired: 4
 };
-*/
+
 
 class TaskTemplate {
   constructor(title, text, date, status) {
@@ -46,3 +46,4 @@ function addTask() {
 }
 
 button.addEventListener("click", addTask);
+

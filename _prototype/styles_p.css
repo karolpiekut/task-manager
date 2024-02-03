@@ -15,37 +15,64 @@
 }
 
 #projects-list {
-    width: 150px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .work-pane {
-    width: 210px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 210px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #plan {
-    background: lightsalmon;
-}   
+  background: lightsalmon;
+}
 #today {
-    background: lightgreen;
+  background: lightgreen;
 }
 #future {
-    background: lightblue;
+  background: lightblue;
 }
 #overdue {
-    background: lightcoral;
+  background: lightcoral;
 }
 #done {
-    background-color: lightseagreen;
+  background-color: lightseagreen;
 }
 
 .board {
-    background: lightcyan;
-    width: 205px;
-    height: 630px;
+  padding-top: 20px;
+  background: lightcyan;
+  width: 205px;
+  height: 630px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  overflow: scroll;
+}
+
+.task {
+  line-height: 1;
+  padding-top: 5px;
+  text-align: center;
+  width: 160px;
+  min-height: 160px;
+  max-height: 160px;
+  position: relative;
+  border: 1px solid #e8e8e8;
+  font-size: 15px;
+  border-bottom-right-radius: 60px 5px;
+  display: inline-block;
+  background: linear-gradient(
+    135deg,
+    #ffff88 81%,
+    #ffff88 82%,
+    #ffff88 82%,
+    #ffffc6 100%
+  );
 }
