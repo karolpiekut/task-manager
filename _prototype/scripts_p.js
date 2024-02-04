@@ -13,7 +13,7 @@ const statusList = {
   cancelled: 3,
   expired: 4
 }
-/*
+*/
 
 class TaskTemplate {
   constructor(title, text, date, status) {
@@ -53,3 +53,4 @@ function addTask() {
 }
 
 button.addEventListener("click", addTask);
+
