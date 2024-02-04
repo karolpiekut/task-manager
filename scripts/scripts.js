@@ -3,7 +3,6 @@ const tasksDiv = document.querySelector("#tasks");
 
 let taskList = [];
 
-/*
 const statusList = {
   not_started: 0,
   in_progress: 1,
@@ -11,7 +10,6 @@ const statusList = {
   cancelled: 3,
   expired: 4,
 };
-*/
 
 class TaskTemplate {
   constructor(title, text, date, status) {
