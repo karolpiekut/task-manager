@@ -49,7 +49,7 @@ review tasks in "overdue" section:
 
 1. change date to today (...work in progress...)
 
-creds:
+Credentials:
 
 - some of the post-it CSS comes from:
   https://mentormate.com/blog/css-postit-note/#:~:text=Making%20the%20Post%2Dit,be%20built%20around%20your%20content
