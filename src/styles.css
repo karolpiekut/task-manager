@@ -1,8 +1,8 @@
-@font-face {
+/*@font-face {
     font-family: Freda;
     src: url("../resources/Freda.ttf")
   }
-  
+
   :root {
     font-family: "Freda", monospace, Arial, Helvetica, sans-serif;
     color: #ffffff;
@@ -40,7 +40,7 @@
     align-items: center;
   }
   
-  /*
+
   #plan {
     background: lightsalmon;
   }
@@ -55,10 +55,10 @@
   }
   #done {
     background-color: lightseagreen;
-  }*/
+  }
   
   .board {
-    /*background: lightcyan;*/
+
     width: 205px;
     height: 630px;
     display: flex;
@@ -97,3 +97,19 @@
   .individual_project {
     font-size: 25px;
   }
+
+*/
+
+@font-face {
+  font-family: 'AppFont';
+  src: url('./resources/WOFF2.woff2') format('woff2'),
+  url('./resources/WOFF.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+div {
+  background: lightblue;
+  font-family: 'AppFont', Helvetica, Arial, sans-serif;
+  font-size: xxx-large;
+}
