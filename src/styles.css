@@ -1,10 +1,13 @@
-/*@font-face {
-    font-family: Freda;
-    src: url("../resources/Freda.ttf")
-  }
+@font-face {
+  font-family: 'AppFont';
+  src: url('./resources/WOFF2.woff2') format('woff2'),
+  url('./resources/WOFF.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
 
-  :root {
-    font-family: "Freda", monospace, Arial, Helvetica, sans-serif;
+:root {
+    font-family: "AppFont", monospace, Arial, Helvetica, sans-serif;
     color: #ffffff;
   }
   
@@ -20,7 +23,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
-    background: url("../resources/chalk.jpg");
+    background: url(resources/chalk.jpg);
     display: flex;
     flex-direction: row;
     padding: 20px 0 20px 0;
@@ -40,7 +43,7 @@
     align-items: center;
   }
   
-
+/*
   #plan {
     background: lightsalmon;
   }
@@ -56,7 +59,7 @@
   #done {
     background-color: lightseagreen;
   }
-  
+  */
   .board {
 
     width: 205px;
@@ -98,18 +101,14 @@
     font-size: 25px;
   }
 
-*/
 
-@font-face {
-  font-family: 'AppFont';
-  src: url('./resources/WOFF2.woff2') format('woff2'),
-  url('./resources/WOFF.woff') format('woff');
-  font-weight: 600;
-  font-style: normal;
-}
 
+
+/*
 div {
   background: lightblue;
   font-family: 'AppFont', Helvetica, Arial, sans-serif;
   font-size: xxx-large;
 }
+
+ */
