@@ -16,10 +16,10 @@
     text-decoration: underline;
   }
   
-  #projects {
+  #theApp {
     box-sizing: border-box;
     height: 700px;
-    width: 1200px;
+    width: 1300px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
@@ -28,42 +28,48 @@
     flex-direction: row;
     padding: 20px 0 20px 0;
   }
-  
-  #projects-list {
+
+#buttonsDiv {
+  width: 100px;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  gap: 1px;
+}
+
+button {
+  width: 100%;
+  height: 35px;
+}
+  #projects {
     width: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-right: white 1px solid;
+    height: 660px;
   }
-  
+
+  #all-tasks-board {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+
   .work-pane {
     width: 210px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 660px;
   }
-  
-/*
-  #plan {
-    background: lightsalmon;
-  }
-  #today {
-    background: lightgreen;
-  }
-  #future {
-    background: lightblue;
-  }
-  #overdue {
-    background: lightcoral;
-  }
-  #done {
-    background-color: lightseagreen;
-  }
-  */
-  .board {
 
+  .board {
     width: 205px;
-    height: 630px;
+    height: 600px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -91,24 +97,10 @@
       #ffffc6 100%
     );
   }
-  #project-test-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
+
 
   .individual_project {
     font-size: 25px;
   }
 
 
-
-
-/*
-div {
-  background: lightblue;
-  font-family: 'AppFont', Helvetica, Arial, sans-serif;
-  font-size: xxx-large;
-}
-
- */
