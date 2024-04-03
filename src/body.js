@@ -1,6 +1,7 @@
 function appBody() {
     const theApp = document.createElement('div');
     theApp.setAttribute('id','theApp');
+
     //--------------------------------------------------------------------------
     //--------------------------------------------------------------------------
 
@@ -35,11 +36,13 @@ function appBody() {
 
     //--------------------------------------------------------------------------
     //--------------------------------------------------------------------------
+
     const tasksDiv = document.createElement('div');
     tasksDiv.setAttribute('id', 'all-tasks-board');
     theApp.appendChild(tasksDiv);
 
     //--------------------------------------------------------------------------
+
     const planColumn = document.createElement('div')
     planColumn.setAttribute('id', 'plan');
     planColumn.setAttribute('class', 'work-pane');
@@ -55,6 +58,7 @@ function appBody() {
     planColumn.appendChild(planBoard);
 
     //--------------------------------------------------------------------------
+
     const todayColumn = document.createElement('div')
     todayColumn.setAttribute('id', 'today');
     todayColumn.setAttribute('class', 'work-pane');
@@ -70,6 +74,7 @@ function appBody() {
     todayColumn.appendChild(todayBoard);
 
     //--------------------------------------------------------------------------
+
     const futureColumn = document.createElement('div')
     futureColumn.setAttribute('id', 'future');
     futureColumn.setAttribute('class', 'work-pane');
@@ -85,6 +90,7 @@ function appBody() {
     futureColumn.appendChild(futureBoard)
 
     //--------------------------------------------------------------------------
+
     const overdueColumn = document.createElement('div')
     overdueColumn.setAttribute('id', 'overdue');
     overdueColumn.setAttribute('class', 'work-pane');
@@ -100,6 +106,7 @@ function appBody() {
     overdueColumn.appendChild(overdueBoard);
 
     //--------------------------------------------------------------------------
+
     const doneColumn = document.createElement('div')
     doneColumn.setAttribute('id', 'done');
     doneColumn.setAttribute('class', 'work-pane');
@@ -116,9 +123,8 @@ function appBody() {
 
     //--------------------------------------------------------------------------
 
-
-
     return theApp;
 }
+
 
 export default appBody();

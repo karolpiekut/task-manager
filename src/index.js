@@ -1,7 +1,11 @@
 import './styles.css';
-import addTask from "./tasks.js";
-import appBody from "./body.js";
+import {addTask, addProject} from './app.js';
+import appBody from './body.js';
 
 document.body.appendChild(appBody);
-const button = document.querySelector("#add-task");
-button.addEventListener("click", addTask);
+
+const taskButton = document.querySelector('#add-task');
+const projectButton = document.querySelector('#add-project');
+
+taskButton.addEventListener('click', addTask);
+projectButton.addEventListener('click', addProject);

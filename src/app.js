@@ -1,6 +1,7 @@
+let app = [];
 let taskList = [];
-
 let number = 0;
+let projectNumber = 0;
 
 const statusList = {
     not_started: 0,
@@ -10,6 +11,13 @@ const statusList = {
     expired: 4,
 };
 
+class ProjectTemplate {
+    constructor(title) {
+        this.title = title;
+        this.taskList = [];
+    }
+}
+
 class TaskTemplate {
     constructor(title, text, date, status) {
         this.title = title;
@@ -18,6 +26,25 @@ class TaskTemplate {
         this.status = status;
     }
 }
+
+function addProject() {
+    const projectsDiv = document.querySelector('#project-list');
+    let addProjectName = prompt("Please enter project name:", "new");
+    let tempProject = new ProjectTemplate(
+        addProjectName
+    );
+    app.push(tempProject);
+
+    const paraProject = document.createElement('div');
+    const nodeProject = document.createTextNode(`${addProjectName}`)
+    paraProject.appendChild(nodeProject)
+    projectsDiv.appendChild(paraProject);
+    projectNumber++;
+    console.table(app);
+}
+
+
+
 function addTask() {
     const tasksDiv = document.querySelector("#plan-board");
     let addTaskOne = prompt("Please enter task name:", "new");
@@ -40,9 +67,9 @@ function addTask() {
     para.setAttribute('class', 'task');
     tasksDiv.appendChild(para);
     number++;
-    console.table(taskList);
+    //console.table(taskList);
+
+
 }
 
-export default addTask;
-
-
+export {addTask, addProject};
