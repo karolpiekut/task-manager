@@ -11,16 +11,17 @@ const statusList = {
     expired: 4,
 };
 
+//Object.setPrototypeOf(Player.prototype, Person.prototype)
+
 class ProjectTemplate {
     constructor(title) {
         this.title = title;
-        this.taskList = [];
     }
 }
 
-class TaskTemplate {
-    constructor(title, text, date, status) {
-        this.title = title;
+class TaskTemplate extends ProjectTemplate{
+    constructor(taskTitle, text, date, status) {
+        this.taskTitle = taskTitle;
         this.text = text;
         this.date = date;
         this.status = status;
@@ -40,10 +41,7 @@ function addProject() {
     paraProject.appendChild(nodeProject)
     projectsDiv.appendChild(paraProject);
     projectNumber++;
-    console.table(app);
 }
-
-
 
 function addTask() {
     const tasksDiv = document.querySelector("#plan-board");
@@ -57,9 +55,7 @@ function addTask() {
         addTaskDate,
         addTaskStatus
     );
-
     taskList.push(tempTask);
-
     const para = document.createElement('div');
     const node = document.createTextNode(`This is number ${number}`);
     taskList.push(`This is number ${number}`);
@@ -67,9 +63,9 @@ function addTask() {
     para.setAttribute('class', 'task');
     tasksDiv.appendChild(para);
     number++;
-    //console.table(taskList);
-
-
 }
+
+
+
 
 export {addTask, addProject};
