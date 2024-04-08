@@ -13,11 +13,13 @@ function Task(projectName, taskName, text, date, status) {
 }
 //delete tasks
 
-
-
+function removeTask(array, taskId) {
+    array.splice(taskId, 1)
+}
 
 //amend task
 
+//function amendTask(array, taskId) 
 
 
 tasks.push(new Task("task-manager", "name", "random text", "2024-04-10", 'new'));
@@ -26,6 +28,9 @@ tasks.push(new Task("food menu", "project scope", "create a project scope", "202
 tasks.push(new Task("food menu", "create recipes", "get food recipes from granny", "2024-04-20", 'new'));
 console.table(tasks);
 
+removeTask(tasks, 2);
+
+console.table(tasks);
 
 //console.table(projectOne);
 
