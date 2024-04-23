@@ -1,60 +1,56 @@
 let tasks = [];
-let taskIndex = 0;
+let customTaskIndex = -1;
+
 
 //create tasks
 function Task(projectName, taskName, text, date, status) {
-    this.index = taskIndex;
-    this.projectName = projectName;
-    this.taskTitle = taskName;
-    this.text = text;
-    this.date = date;
-    this.status = status;
-    taskIndex++;
-}
-//delete tasks
+    customTaskIndex++;
+    return {
+        customTaskIndex,
+        projectName,
+        taskName,
+        text,
+        date,
+        status,
 
+    }
+}
+
+//delete tasks
 function removeTask(array, taskId) {
-    array.splice(taskId, 1)
+    return array.splice(taskId, 1)
+}
+
+//delete project
+function removeProject(array, removeProjectName) {
+    return array.filter((arrayItem) => {
+        return arrayItem.projectName !== removeProjectName;
+    });
 }
 
 //amend task
+tasks.push(Task("task-manager", "name", "random text", "2024-04-10", 'new'));
+tasks.push(Task("task-manager", "name2", "random text2", "2024-04-11", 'done'));
+tasks.push(Task("food menu", "project scope", "create a project scope", "2024-04-10", 'overdue'));
+tasks.push(Task("food menu", "create recipes", "get food recipes from granny", "2024-04-20", 'new'));
+tasks.push(Task("odin-project", "name3", "test tekstu", "2024-04-14", 'overdue'));
+tasks.push(Task("odin-project", "name4", "test tekstu", "2024-04-14", 'overdue'));
+tasks.push(Task("task-manager", "name3", "test tekstu", "2024-04-14", 'overdue'));
+tasks.push(Task("task-manager", "name5", "random tekst", "2024-04-19", 'done'));
+tasks.push(Task("odin-project", "name8", "ogarnij", "2024-04-14", 'overdue'));
 
-//function amendTask(array, taskId) 
+//tasks = removeProject(tasks,"odin-project");
+removeTask(tasks, 1 );
+tasks = removeProject(tasks,"task-manager");
 
-
-tasks.push(new Task("task-manager", "name", "random text", "2024-04-10", 'new'));
-tasks.push(new Task("task-manager", "name2", "random text2", "2024-04-11", 'done'));
-tasks.push(new Task("food menu", "project scope", "create a project scope", "2024-04-10", 'overdue'));
-tasks.push(new Task("food menu", "create recipes", "get food recipes from granny", "2024-04-20", 'new'));
 console.table(tasks);
-
-removeTask(tasks, 2);
-
-console.table(tasks);
-
-//console.table(projectOne);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // let app = [];
 // let taskList = [];
 // let number = 0;
 // let projectNumber = 0;
+
 //
 // const statusList = {
 //     not_started: 0,
@@ -101,12 +97,12 @@ console.table(tasks);
 //     let addTaskOne = prompt("Please enter task name:", "new");
 //     let addTaskText = prompt("Please enter task text:", "task text");
 //     let addTaskDate = prompt("Please enter task due date:", "1900-01-01");
-//     let addTaskStatus = prompt("Please enter task status", "new");
+//     let addtaskstatus = prompt("Please enter task status", "new");
 //     let tempTask = new TaskTemplate(
 //         addTaskOne,
 //         addTaskText,
 //         addTaskDate,
-//         addTaskStatus
+//         addtaskstatus
 //     );
 //     taskList.push(tempTask);
 //     const para = document.createElement('div');
