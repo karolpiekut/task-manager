@@ -1,7 +1,6 @@
 let tasks = [];
 let customTaskIndex = -1;
 
-
 //create tasks
 function Task(projectName, taskName, text, date, status) {
     customTaskIndex++;
@@ -16,6 +15,16 @@ function Task(projectName, taskName, text, date, status) {
     }
 }
 
+tasks.push(Task("task-manager", "name", "random text", "2024-04-10", 'new'));
+tasks.push(Task("task-manager", "name2", "random text2", "2024-04-11", 'done'));
+tasks.push(Task("food menu", "project scope", "create a project scope", "2024-04-10", 'overdue'));
+tasks.push(Task("food menu", "create recipes", "get food recipes from granny", "2024-04-20", 'new'));
+// tasks.push(Task("odin-project", "name3", "test tekstu", "2024-04-14", 'overdue'));
+// tasks.push(Task("odin-project", "name4", "test tekstu", "2024-04-14", 'overdue'));
+// tasks.push(Task("task-manager", "name3", "test tekstu", "2024-04-14", 'overdue'));
+// tasks.push(Task("task-manager", "name5", "random tekst", "2024-04-19", 'done'));
+// tasks.push(Task("odin-project", "name8", "ogarnij", "2024-04-14", 'overdue'));
+
 //delete tasks
 function removeTask(array, taskId) {
     return array.splice(taskId, 1)
@@ -28,23 +37,23 @@ function removeProject(array, removeProjectName) {
     });
 }
 
-//amend task
-tasks.push(Task("task-manager", "name", "random text", "2024-04-10", 'new'));
-tasks.push(Task("task-manager", "name2", "random text2", "2024-04-11", 'done'));
-tasks.push(Task("food menu", "project scope", "create a project scope", "2024-04-10", 'overdue'));
-tasks.push(Task("food menu", "create recipes", "get food recipes from granny", "2024-04-20", 'new'));
-tasks.push(Task("odin-project", "name3", "test tekstu", "2024-04-14", 'overdue'));
-tasks.push(Task("odin-project", "name4", "test tekstu", "2024-04-14", 'overdue'));
-tasks.push(Task("task-manager", "name3", "test tekstu", "2024-04-14", 'overdue'));
-tasks.push(Task("task-manager", "name5", "random tekst", "2024-04-19", 'done'));
-tasks.push(Task("odin-project", "name8", "ogarnij", "2024-04-14", 'overdue'));
+//amend task or project
+function amendValues(array, id, property, value) {
+    if (property === "projectName") {
+        for (let i in array) {
+            if (array[i].projectName === array[id].projectName) {
+                array[i].projectName = value;
+            }
+        }
+    } else {
+        array[id][property] = value;
+    }
+}
 
-//tasks = removeProject(tasks,"odin-project");
-removeTask(tasks, 1 );
-tasks = removeProject(tasks,"task-manager");
+amendValues(tasks, 1, "projectName", "task manager");
+amendValues(tasks, 1, "taskName", "Amend Tasks Function");
 
 console.table(tasks);
-
 
 // let app = [];
 // let taskList = [];
