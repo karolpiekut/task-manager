@@ -15,16 +15,6 @@ function Task(projectName, taskName, text, date, status) {
     }
 }
 
-tasks.push(Task("task-manager", "name", "random text", "2024-04-10", 'new'));
-tasks.push(Task("task-manager", "name2", "random text2", "2024-04-11", 'done'));
-tasks.push(Task("food menu", "project scope", "create a project scope", "2024-04-10", 'overdue'));
-tasks.push(Task("food menu", "create recipes", "get food recipes from granny", "2024-04-20", 'new'));
-// tasks.push(Task("odin-project", "name3", "test tekstu", "2024-04-14", 'overdue'));
-// tasks.push(Task("odin-project", "name4", "test tekstu", "2024-04-14", 'overdue'));
-// tasks.push(Task("task-manager", "name3", "test tekstu", "2024-04-14", 'overdue'));
-// tasks.push(Task("task-manager", "name5", "random tekst", "2024-04-19", 'done'));
-// tasks.push(Task("odin-project", "name8", "ogarnij", "2024-04-14", 'overdue'));
-
 //delete tasks
 function removeTask(array, taskId) {
     return array.splice(taskId, 1)
@@ -62,8 +52,8 @@ console.table(tasks);
 
 //
 // const statusList = {
-//     not_started: 0,
-//     in_progress: 1,
+//     notStarted: 0,
+//     inProgress: 1,
 //     complete: 2,
 //     cancelled: 3,
 //     expired: 4,
@@ -122,8 +112,16 @@ console.table(tasks);
 //     tasksDiv.appendChild(para);
 //     number++;
 // }
-//
-//
-//
-//
+
+tasks.push(Task("task-manager", "name", "random text", "2024-04-10", 'new'));
+tasks.push(Task("task-manager", "name2", "random text2", "2024-04-11", 'done'));
+tasks.push(Task("food menu", "project scope", "create a project scope", "2024-04-10", 'overdue'));
+tasks.push(Task("food menu", "create recipes", "get food recipes from granny", "2024-04-20", 'new'));
+// tasks.push(Task("odin-project", "name3", "test tekstu", "2024-04-14", 'overdue'));
+// tasks.push(Task("odin-project", "name4", "test tekstu", "2024-04-14", 'overdue'));
+// tasks.push(Task("task-manager", "name3", "test tekstu", "2024-04-14", 'overdue'));
+// tasks.push(Task("task-manager", "name5", "random tekst", "2024-04-19", 'done'));
+// tasks.push(Task("odin-project", "name8", "ogarnij", "2024-04-14", 'overdue'));
+
+
 // export {addTask, addProject};
