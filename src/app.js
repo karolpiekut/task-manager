@@ -1,6 +1,8 @@
 let tasks = [];
 let customTaskIndex = -1;
 
+console.log("git test");
+
 //create tasks
 function Task(projectName, taskName, text, date, status) {
     customTaskIndex++;
