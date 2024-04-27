@@ -1,9 +1,49 @@
+const theApp = document.querySelector("#theApp");
+const plan = document.querySelector("#plan");
+
 let tasks = [];
 let customTaskIndex = -1;
+
+function createATaskDiv(projectName, taskName, text, date, status) {
+    const taskDiv = document.createElement('div');
+    taskDiv.setAttribute('id', 'taskDiv');
+    taskDiv.setAttribute('class', 'task');
+
+    const projectNameText = document.createElement('h3');
+    projectNameText.setAttribute('class', 'projectName');
+    projectNameText.textContent = projectName;
+
+    const taskNameText = document.createElement('h2');
+    taskNameText.setAttribute('class', 'taskName');
+    taskNameText.textContent = taskName;
+
+    const textName = document.createElement('p');
+    textName.setAttribute('class', 'textName');
+    textName.textContent = text;
+
+    const dateNameText = document.createElement('p');
+    dateNameText.setAttribute('class', 'dateName');
+    dateNameText.textContent = date;
+
+    const statusNameText = document.createElement('p');
+    statusNameText.setAttribute('class', 'statusName');
+    statusNameText.textContent = status;
+
+    taskDiv.appendChild(projectNameText);
+    taskDiv.appendChild(taskNameText);
+    taskDiv.appendChild(textName);
+    taskDiv.appendChild(dateNameText);
+    taskDiv.appendChild(statusNameText);
+
+    return taskDiv;
+}
+
+
 
 //create tasks
 function Task(projectName, taskName, text, date, status) {
     customTaskIndex++;
+    //plan.appendChild(createATaskDiv(projectName, taskName, text, date, status));
     return {
         customTaskIndex,
         projectName,
@@ -19,11 +59,11 @@ tasks.push(Task("task-manager", "name", "random text", "2024-04-10", 'new'));
 tasks.push(Task("task-manager", "name2", "random text2", "2024-04-11", 'done'));
 tasks.push(Task("food menu", "project scope", "create a project scope", "2024-04-10", 'overdue'));
 tasks.push(Task("food menu", "create recipes", "get food recipes from granny", "2024-04-20", 'new'));
-// tasks.push(Task("odin-project", "name3", "test tekstu", "2024-04-14", 'overdue'));
-// tasks.push(Task("odin-project", "name4", "test tekstu", "2024-04-14", 'overdue'));
-// tasks.push(Task("task-manager", "name3", "test tekstu", "2024-04-14", 'overdue'));
-// tasks.push(Task("task-manager", "name5", "random tekst", "2024-04-19", 'done'));
-// tasks.push(Task("odin-project", "name8", "ogarnij", "2024-04-14", 'overdue'));
+tasks.push(Task("odin-project", "name3", "test tekstu", "2024-04-14", 'overdue'));
+tasks.push(Task("odin-project", "name4", "test tekstu", "2024-04-14", 'overdue'));
+tasks.push(Task("task-manager", "name3", "test tekstu", "2024-04-14", 'overdue'));
+tasks.push(Task("task-manager", "name5", "random tekst", "2024-04-19", 'done'));
+tasks.push(Task("odin-project", "name8", "ogarnij", "2024-04-14", 'overdue'));
 
 //delete tasks
 function removeTask(array, taskId) {
@@ -50,10 +90,31 @@ function amendValues(array, id, property, value) {
     }
 }
 
-amendValues(tasks, 1, "projectName", "task manager");
-amendValues(tasks, 1, "taskName", "Amend Tasks Function");
 
-console.table(tasks);
+// function addTask() {
+//     const tasksDiv = document.querySelector("#plan-board");
+//     let addTaskOne = prompt("Please enter task name:", "new");
+//     let addTaskText = prompt("Please enter task text:", "task text");
+//     let addTaskDate = prompt("Please enter task due date:", "1900-01-01");
+//     let addtaskstatus = prompt("Please enter task status", "new");
+//     let tempTask = new TaskTemplate(
+//         addTaskOne,
+//         addTaskText,
+//         addTaskDate,
+//         addtaskstatus
+//     );
+//     taskList.push(tempTask);
+//     const para = document.createElement('div');
+//     const node = document.createTextNode(`This is number ${number}`);
+//     taskList.push(`This is number ${number}`);
+//     para.appendChild(node);
+//     para.setAttribute('class', 'task');
+//     tasksDiv.appendChild(para);
+//     number++;
+// }
+//
+
+
 
 // let app = [];
 // let taskList = [];
@@ -101,29 +162,18 @@ console.table(tasks);
 //     projectNumber++;
 // }
 //
-// function addTask() {
-//     const tasksDiv = document.querySelector("#plan-board");
-//     let addTaskOne = prompt("Please enter task name:", "new");
-//     let addTaskText = prompt("Please enter task text:", "task text");
-//     let addTaskDate = prompt("Please enter task due date:", "1900-01-01");
-//     let addtaskstatus = prompt("Please enter task status", "new");
-//     let tempTask = new TaskTemplate(
-//         addTaskOne,
-//         addTaskText,
-//         addTaskDate,
-//         addtaskstatus
-//     );
-//     taskList.push(tempTask);
-//     const para = document.createElement('div');
-//     const node = document.createTextNode(`This is number ${number}`);
-//     taskList.push(`This is number ${number}`);
-//     para.appendChild(node);
-//     para.setAttribute('class', 'task');
-//     tasksDiv.appendChild(para);
-//     number++;
-// }
+
 //
 //
 //
-//
-// export {addTask, addProject};
+
+export {createATaskDiv, Task, removeTask, removeProject, amendValues};
+
+
+
+
+
+//amendValues(tasks, 1, "projectName", "task manager");
+//amendValues(tasks, 1, "taskName", "Amend Tasks Function");
+
+//console.table(tasks);
