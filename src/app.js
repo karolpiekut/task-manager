@@ -126,4 +126,4 @@ tasks.push(Task("food menu", "create recipes", "get food recipes from granny", "
 // tasks.push(Task("odin-project", "name8", "ogarnij", "2024-04-14", 'overdue'));
 
 
-// export {addTask, addProject};
+export {addTask, addProject};
