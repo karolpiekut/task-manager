@@ -1,5 +1,4 @@
 const theApp = document.querySelector("#theApp");
-const plan = document.querySelector("#plan");
 
 let tasks = [];
 let customTaskIndex = -1;
@@ -38,12 +37,9 @@ function createATaskDiv(projectName, taskName, text, date, status) {
     return taskDiv;
 }
 
-
-
 //create tasks
 function Task(projectName, taskName, text, date, status) {
     customTaskIndex++;
-    //plan.appendChild(createATaskDiv(projectName, taskName, text, date, status));
     return {
         customTaskIndex,
         projectName,
@@ -55,15 +51,35 @@ function Task(projectName, taskName, text, date, status) {
     }
 }
 
-tasks.push(Task("task-manager", "name", "random text", "2024-04-10", 'new'));
-tasks.push(Task("task-manager", "name2", "random text2", "2024-04-11", 'done'));
-tasks.push(Task("food menu", "project scope", "create a project scope", "2024-04-10", 'overdue'));
-tasks.push(Task("food menu", "create recipes", "get food recipes from granny", "2024-04-20", 'new'));
-tasks.push(Task("odin-project", "name3", "test tekstu", "2024-04-14", 'overdue'));
-tasks.push(Task("odin-project", "name4", "test tekstu", "2024-04-14", 'overdue'));
-tasks.push(Task("task-manager", "name3", "test tekstu", "2024-04-14", 'overdue'));
-tasks.push(Task("task-manager", "name5", "random tekst", "2024-04-19", 'done'));
-tasks.push(Task("odin-project", "name8", "ogarnij", "2024-04-14", 'overdue'));
+// function createATask (projectName, taskName, text, date, status){
+    function createATask (){
+    const plan = document.querySelector("#plan-board");
+    let projectNameQuestion= prompt("Project name:", "new");
+    let taskNameQuestion = prompt("Task name:", "new")
+    let taskTextQuestion = prompt("Notes:", "new");
+    let taskDateQuestion = prompt("Task due:", "1900-01-01");
+    let taskStatusQuestion = prompt("Please enter task status", "new");
+
+
+    let tempTask = Task(projectNameQuestion,
+        taskNameQuestion,
+        taskTextQuestion,
+        taskDateQuestion,
+        taskStatusQuestion)
+
+        console.log(tempTask);
+    tasks.push(tempTask);
+
+        plan.appendChild(createATaskDiv(
+            projectNameQuestion,
+            taskNameQuestion,
+            taskTextQuestion,
+            taskDateQuestion,
+            taskStatusQuestion));
+
+    // plan.appendChild(createATaskDiv(projectName, taskName, text, date, status));
+    // tasks.push(Task(projectName,taskName, text, date, status));
+}
 
 //delete tasks
 function removeTask(array, taskId) {
@@ -167,8 +183,7 @@ function amendValues(array, id, property, value) {
 //
 //
 
-export {createATaskDiv, Task, removeTask, removeProject, amendValues};
-
+export {createATaskDiv, Task, removeTask, removeProject, amendValues, createATask};
 
 
 
