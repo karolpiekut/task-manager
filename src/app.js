@@ -52,6 +52,11 @@ function Task(projectName, taskName, text, date, status) {
 // function createATask (projectName, taskName, text, date, status){
 function createATask() {
     const plan = document.querySelector("#plan-board");
+    const today = document.querySelector("#today-board");
+    const future = document.querySelector("#future-board");
+    const overdue = document.querySelector("#overdue-board");
+    const done = document.querySelector("#done-board");
+
     let projectNameQuestion = prompt("Project name:", "new");
     let taskNameQuestion = prompt("Task name:", "new")
     let taskTextQuestion = prompt("Notes:", "new");
@@ -66,12 +71,42 @@ function createATask() {
 
     tasks.push(tempTask);
 
-    plan.appendChild(createATaskDiv(
-        projectNameQuestion,
-        taskNameQuestion,
-        taskTextQuestion,
-        taskDateQuestion,
-        taskStatusQuestion));
+     if (taskStatusQuestion === "today") {
+        today.appendChild(createATaskDiv(
+            projectNameQuestion,
+            taskNameQuestion,
+            taskTextQuestion,
+            taskDateQuestion,
+            taskStatusQuestion));
+    } else if (taskStatusQuestion === "future") {
+        future.appendChild(createATaskDiv(
+            projectNameQuestion,
+            taskNameQuestion,
+            taskTextQuestion,
+            taskDateQuestion,
+            taskStatusQuestion));
+    } else if (taskStatusQuestion === "overdue") {
+        overdue.appendChild(createATaskDiv(
+            projectNameQuestion,
+            taskNameQuestion,
+            taskTextQuestion,
+            taskDateQuestion,
+            taskStatusQuestion));
+    } else if (taskStatusQuestion === "done") {
+        done.appendChild(createATaskDiv(
+            projectNameQuestion,
+            taskNameQuestion,
+            taskTextQuestion,
+            taskDateQuestion,
+            taskStatusQuestion));
+    } else {
+        plan.appendChild(createATaskDiv(
+            projectNameQuestion,
+            taskNameQuestion,
+            taskTextQuestion,
+            taskDateQuestion,
+            taskStatusQuestion));
+    }
 
     console.table(tasks);
 }
