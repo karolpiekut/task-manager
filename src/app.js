@@ -1,5 +1,3 @@
-const theApp = document.querySelector("#theApp");
-
 let tasks = [];
 let customTaskIndex = -1;
 
