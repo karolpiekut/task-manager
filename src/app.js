@@ -8,23 +8,23 @@ function createATaskDiv(projectName, taskName, text, date, status) {
 
     const projectNameText = document.createElement('h3');
     projectNameText.setAttribute('class', 'projectName');
-    projectNameText.textContent = projectName;
+    projectNameText.innerText = projectName;
 
     const taskNameText = document.createElement('h2');
     taskNameText.setAttribute('class', 'taskName');
-    taskNameText.textContent = taskName;
+    taskNameText.innerText = taskName;
 
     const textName = document.createElement('p');
     textName.setAttribute('class', 'textName');
-    textName.textContent = text;
+    textName.innerText = text;
 
     const dateNameText = document.createElement('p');
     dateNameText.setAttribute('class', 'dateName');
-    dateNameText.textContent = date;
+    dateNameText.innerText = date;
 
     const statusNameText = document.createElement('p');
     statusNameText.setAttribute('class', 'statusName');
-    statusNameText.textContent = status;
+    statusNameText.innerText = status;
 
     taskDiv.appendChild(projectNameText);
     taskDiv.appendChild(taskNameText);
@@ -49,6 +49,16 @@ function Task(projectName, taskName, text, date, status) {
     }
 }
 
+function displayProjectList(projectNameText) {
+    let projectListDiv = document.querySelector("#ulProjectList");
+
+    //add rule if project name exists within tasks
+
+    let projectListItem = document.createElement('li');
+    projectListItem.innerText = projectNameText;
+    projectListDiv.appendChild(projectListItem);
+}
+
 // function createATask (projectName, taskName, text, date, status){
 function createATask() {
     const plan = document.querySelector("#plan-board");
@@ -71,7 +81,7 @@ function createATask() {
 
     tasks.push(tempTask);
 
-     if (taskStatusQuestion === "today") {
+    if (taskStatusQuestion === "today") {
         today.appendChild(createATaskDiv(
             projectNameQuestion,
             taskNameQuestion,
@@ -107,8 +117,7 @@ function createATask() {
             taskDateQuestion,
             taskStatusQuestion));
     }
-
-    console.table(tasks);
+    displayProjectList(projectNameQuestion);
 }
 
 //delete tasks
@@ -136,4 +145,5 @@ function amendValues(array, id, property, value) {
     }
 }
 
-export {createATaskDiv, Task, removeTask, removeProject, amendValues, createATask};
+
+export {removeTask, removeProject, amendValues, createATask, displayProjectList};

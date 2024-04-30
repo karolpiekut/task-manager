@@ -34,6 +34,10 @@ function appBody() {
     projectsList.setAttribute('id','project-list');
     projectsDiv.appendChild(projectsList);
 
+    const listItems = document.createElement("ul");
+    listItems.setAttribute('id', 'ulProjectList');
+    projectsList.appendChild(listItems);
+
     //--------------------------------------------------------------------------
     //--------------------------------------------------------------------------
 
