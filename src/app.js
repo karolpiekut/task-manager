@@ -3,7 +3,7 @@ let customTaskIndex = -1;
 
 function createATaskDiv(projectName, taskName, text, date, status) {
     const taskDiv = document.createElement('div');
-    taskDiv.setAttribute('id', 'taskDiv');
+    taskDiv.setAttribute('id', `${customTaskIndex}`);
     taskDiv.setAttribute('class', 'task');
 
     const projectNameText = document.createElement('h3');
@@ -35,8 +35,6 @@ function createATaskDiv(projectName, taskName, text, date, status) {
     return taskDiv;
 }
 
-//create tasks
-
 function Task(projectName, taskName, text, date, status) {
     customTaskIndex++;
     return {
@@ -49,20 +47,17 @@ function Task(projectName, taskName, text, date, status) {
     }
 }
 
-//NEW TO CHECK IF ALL VALUES MEET CONDITION, ONLY THEN EXECUTE!!!!!
-
-const checkIfProjectExists = (obj, value) => Object.values(obj).includes(value);
-const isNotProject = (name) => name !== true;
-
 function displayProjectList(projectNameText) {
     let projectListDiv = document.querySelector("#ulProjectList");
-    let projectListItem = document.createElement('li');
+    let projectListItem = document.createElement('button');
     projectListItem.innerText = projectNameText;
     projectListDiv.appendChild(projectListItem);
 }
 
 function testIfDisplayProjectName(name) {
     let check = [];
+    const checkIfProjectExists = (obj, value) => Object.values(obj).includes(value);
+    const isNotProject = (name) => name !== true;
     for (let i in tasks) {
         check.push(checkIfProjectExists(tasks[i], name));
         console.log(`check if all good: ${check.every(isNotProject)}`);
@@ -71,9 +66,7 @@ function testIfDisplayProjectName(name) {
         displayProjectList(name);
     }
 }
-
 //---------------------------------------------------------------------------------------------------------------------
-
 function createATask() {
     const plan = document.querySelector("#plan-board");
     const today = document.querySelector("#today-board");
@@ -94,8 +87,6 @@ function createATask() {
         taskTextQuestion,
         taskDateQuestion,
         taskStatusQuestion));
-
-
     //-----------------------------------------------------------------------------------------------------------------
     if (taskStatusQuestion === "today") {
         today.appendChild(createATaskDiv(
@@ -135,6 +126,13 @@ function createATask() {
     }
 }
 
+//display tasks
+
+
+
+
+
+
 //delete tasks
 function removeTask(array, taskId) {
     return array.splice(taskId, 1)
@@ -159,4 +157,5 @@ function amendValues(array, id, property, value) {
         array[id][property] = value;
     }
 }
+
 export {removeTask, removeProject, amendValues, createATask, displayProjectList};
