@@ -36,6 +36,7 @@ function createATaskDiv(projectName, taskName, text, date, status) {
 }
 
 //create tasks
+
 function Task(projectName, taskName, text, date, status) {
     customTaskIndex++;
     return {
@@ -45,21 +46,34 @@ function Task(projectName, taskName, text, date, status) {
         text,
         date,
         status,
-
     }
 }
 
+//NEW TO CHECK IF ALL VALUES MEET CONDITION, ONLY THEN EXECUTE!!!!!
+
+const checkIfProjectExists = (obj, value) => Object.values(obj).includes(value);
+const isNotProject = (name) => name !== true;
+
 function displayProjectList(projectNameText) {
     let projectListDiv = document.querySelector("#ulProjectList");
-
-    //add rule if project name exists within tasks
-
     let projectListItem = document.createElement('li');
     projectListItem.innerText = projectNameText;
     projectListDiv.appendChild(projectListItem);
 }
 
-// function createATask (projectName, taskName, text, date, status){
+function testIfDisplayProjectName(name) {
+    let check = [];
+    for (let i in tasks) {
+        check.push(checkIfProjectExists(tasks[i], name));
+        console.log(`check if all good: ${check.every(isNotProject)}`);
+    }
+    if (check.every(isNotProject)) {
+        displayProjectList(name);
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+
 function createATask() {
     const plan = document.querySelector("#plan-board");
     const today = document.querySelector("#today-board");
@@ -73,14 +87,16 @@ function createATask() {
     let taskDateQuestion = prompt("Task due:", "1900-01-01");
     let taskStatusQuestion = prompt("Please enter task status", "new");
 
-    let tempTask = Task(projectNameQuestion,
+    testIfDisplayProjectName(projectNameQuestion);
+
+    tasks.push(Task(projectNameQuestion,
         taskNameQuestion,
         taskTextQuestion,
         taskDateQuestion,
-        taskStatusQuestion)
+        taskStatusQuestion));
 
-    tasks.push(tempTask);
 
+    //-----------------------------------------------------------------------------------------------------------------
     if (taskStatusQuestion === "today") {
         today.appendChild(createATaskDiv(
             projectNameQuestion,
@@ -117,7 +133,6 @@ function createATask() {
             taskDateQuestion,
             taskStatusQuestion));
     }
-    displayProjectList(projectNameQuestion);
 }
 
 //delete tasks
@@ -144,6 +159,4 @@ function amendValues(array, id, property, value) {
         array[id][property] = value;
     }
 }
-
-
 export {removeTask, removeProject, amendValues, createATask, displayProjectList};
