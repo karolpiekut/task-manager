@@ -3,7 +3,7 @@ let customTaskIndex = -1;
 
 function createATaskDiv(projectName, taskName, text, date, status) {
     const taskDiv = document.createElement('div');
-    taskDiv.setAttribute('id', `${customTaskIndex}`);
+    taskDiv.setAttribute('id', `taskID_${customTaskIndex}`);
     taskDiv.setAttribute('class', 'task');
 
     const projectNameText = document.createElement('h3');
@@ -26,11 +26,18 @@ function createATaskDiv(projectName, taskName, text, date, status) {
     statusNameText.setAttribute('class', 'statusName');
     statusNameText.innerText = status;
 
+    const deleteTaskBtn = document.createElement('button');
+    deleteTaskBtn.setAttribute('class', 'deleteTaskBtn');
+    deleteTaskBtn.setAttribute('id', `delButtonID_${customTaskIndex}`)
+    deleteTaskBtn.innerText = 'delete';
+
     taskDiv.appendChild(projectNameText);
     taskDiv.appendChild(taskNameText);
     taskDiv.appendChild(textName);
     taskDiv.appendChild(dateNameText);
+
     taskDiv.appendChild(statusNameText);
+    taskDiv.appendChild(deleteTaskBtn);
 
     return taskDiv;
 }
@@ -50,6 +57,8 @@ function Task(projectName, taskName, text, date, status) {
 function displayProjectList(projectNameText) {
     let projectListDiv = document.querySelector("#ulProjectList");
     let projectListItem = document.createElement('button');
+    projectListItem.setAttribute('id', `btn_${projectNameText}`);
+    projectListItem.setAttribute('class', 'projectListItem');
     projectListItem.innerText = projectNameText;
     projectListDiv.appendChild(projectListItem);
 }
@@ -66,6 +75,7 @@ function testIfDisplayProjectName(name) {
         displayProjectList(name);
     }
 }
+
 //---------------------------------------------------------------------------------------------------------------------
 function createATask() {
     const plan = document.querySelector("#plan-board");
@@ -128,14 +138,34 @@ function createATask() {
 
 //display tasks
 
+function deleteButton() {
+    console.log('hi button');
+    console.log(this);
+}
 
+/*
 
+class Button {
+constructor(value) {
+    this.value = value;
+  }
+  click = () => {
+    alert(this.value);
+  }
+}
 
+let button = new Button(“hello”);
 
+setTimeout(button.click, 1000); // hello
 
+The class field click = () => {…} is created on a per-object basis,
+there’s a separate function for each Button object, with this inside it referencing that object.
+We can pass button.click around anywhere, and the value of this will always be correct.
+
+*/
 //delete tasks
 function removeTask(array, taskId) {
-    return array.splice(taskId, 1)
+    return array.splice(taskId, 1);
 }
 
 //delete project
@@ -158,4 +188,4 @@ function amendValues(array, id, property, value) {
     }
 }
 
-export {removeTask, removeProject, amendValues, createATask, displayProjectList};
+export {removeTask, removeProject, amendValues, createATask, displayProjectList, deleteButton};

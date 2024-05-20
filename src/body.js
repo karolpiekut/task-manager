@@ -3,28 +3,16 @@ function appBody() {
     theApp.setAttribute('id','theApp');
 
     //--------------------------------------------------------------------------
-    //--------------------------------------------------------------------------
 
-    const buttonsDiv = document.createElement('div');
-    buttonsDiv.setAttribute('id', 'buttonsDiv');
-    theApp.appendChild(buttonsDiv);
+    const sidebar = document.createElement('div');
+    sidebar.setAttribute('id','sidebar');
+    theApp.appendChild(sidebar);
 
-    const addProjectButton = document.createElement('button');
-    addProjectButton.setAttribute('id', 'add-project');
-    addProjectButton.innerText = 'add project';
-    buttonsDiv.appendChild(addProjectButton);
-
-    const addTaskButton = document.createElement('button');
-    addTaskButton.setAttribute('id', 'add-task');
-    addTaskButton.innerText = 'add task';
-    buttonsDiv.appendChild(addTaskButton);
-
-    //--------------------------------------------------------------------------
     //--------------------------------------------------------------------------
 
     const projectsDiv = document.createElement('div');
     projectsDiv.setAttribute('id', 'projects');
-    theApp.appendChild(projectsDiv);
+    sidebar.appendChild(projectsDiv);
 
     const projectsHeader = document.createElement('h2');
     projectsHeader.innerText = "projects";
@@ -37,6 +25,18 @@ function appBody() {
     const listItems = document.createElement("ul");
     listItems.setAttribute('id', 'ulProjectList');
     projectsList.appendChild(listItems);
+    //--------------------------------------------------------------------------
+
+    const buttonsDiv = document.createElement('div');
+    buttonsDiv.setAttribute('id', 'buttonsDiv');
+    sidebar.appendChild(buttonsDiv);
+
+    const addTaskButton = document.createElement('button');
+    addTaskButton.setAttribute('id', 'add-task');
+    addTaskButton.innerText = '+';
+    buttonsDiv.appendChild(addTaskButton);
+
+    //--------------------------------------------------------------------------
 
     //--------------------------------------------------------------------------
     //--------------------------------------------------------------------------
